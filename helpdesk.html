@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CWA Help Desk Appointment</title>
+</head>
+<body>
+    
+    <!-- Logo links to Swinburne website as per instructions -->
+    <a href="http://www.swin.edu.au">
+        <img src="logo.png" alt="Swinburne Logo" title="Swinburne">
+    </a>
+
+    <h1>CWA Help Desk Appointment</h1>
+    <p>The Help Desk is located in ATC620. Open 10:30 to 19:00 Monday to Friday. Check Blackboard for when CWA tutors will be there.</p>
+
+    <form method="post" action="http://swin.edu.au">
+        <fieldset>
+            <legend>Student details</legend>
+            <p>
+                <label for="studID">Student ID</label>
+                <!-- Pattern [A-Za-z0-9] allows letters and numbers. {7,10} sets the length -->
+                <input id="studID" type="text" name="studentID" required pattern="[A-Za-z0-9]{7,10}">
+            </p>
+
+            <p>
+                <label for="givenName">Given Name</label>
+                <!-- {1,15} allows any name from 1 to 15 characters long -->
+                <input id="givenName" type="text" name="givenName" required maxlength="15" pattern="[A-Za-z]{1,15}">
+
+                <label for="familyName">Family Name</label>
+                <input id="familyName" type="text" name="familyName" required maxlength="15" pattern="[A-Za-z]{1,15}">
+            </p>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Your unit</legend>
+            <p>
+                <!-- Radio buttons share the same 'name' but have unique 'values' -->
+                <input id="class1" type="radio" name="class" value="COS10011" required>
+                <label for="class1">COS10011</label>
+                
+                <input id="class2" type="radio" name="class" value="COS60004">
+                <label for="class2">COS60004</label>
+                
+                <input id="class3" type="radio" name="class" value="COS60007">
+                <label for="class3">COS60007</label>
+            </p>
+
+            <p>
+                <label for="tutor">Your tutor</label>
+                <!-- First option is empty to work with the 'required' attribute -->
+                <select id="tutor" name="tutor" required>
+                    <option value="">Please Select</option>
+                    <option value="Jack">Jack</option>
+                    <option value="Maya">Maya</option>
+                    <option value="Mike">Mike</option>
+                    <option value="Lilly">Lilly</option>
+                </select>
+            </p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Issue</legend>
+            <!-- HTML is checked by default. Values are added for the server -->
+            <input id="html" type="checkbox" name="issue[]" value="HTML" checked>
+            <label for="html">HTML</label>
+
+            <input id="css" type="checkbox" name="issue[]" value="CSS">
+            <label for="css">CSS</label>
+
+            <input id="javaScript" type="checkbox" name="issue[]" value="JS">
+            <label for="javaScript">JavaScript</label>
+
+            <input id="php" type="checkbox" name="issue[]" value="PHP">
+            <label for="php">PHP</label>
+
+            <input id="mySQL" type="checkbox" name="issue[]" value="MySQL">
+            <label for="mySQL">MySQL</label>
+
+            <p>Description of Issue</p>
+            <!-- Placeholder shows hint text that disappears on click -->
+            <textarea name="description" rows="4" cols="40" placeholder="Write description of your problem here..."></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>Preferred Date / Time</legend>
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date">
+            <br>
+            <label for="time">Time</label>
+            <input type="time" id="time" name="time">
+        </fieldset>
+
+        <br>
+        <input type="submit" value="Book">
+        <input type="reset" value="Reset form">
+
+    </form>
+</body>
+</html>
